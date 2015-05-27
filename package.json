@@ -1,0 +1,13 @@
+{
+  "name": "peer-server",
+  "version": "1.0.0",
+  "description": "A request response library using PeerJS to make it easier to write p2p applications",
+  "main": "index.js",
+  "keywords": [
+    "p2p",
+    "WebRTC",
+    "peerjs"
+  ],
+  "author": "Matthew Sessions <shichongrui@gmail.com> (http://www.matthewsessions.com/)",
+  "license": "MIT"
+}

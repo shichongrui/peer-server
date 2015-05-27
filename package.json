@@ -9,5 +9,9 @@
     "peerjs"
   ],
   "author": "Matthew Sessions <shichongrui@gmail.com> (http://www.matthewsessions.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node-uuid": "^1.4.3",
+    "peerjs": "^0.3.14"
+  }
 }

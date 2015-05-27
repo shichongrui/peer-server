@@ -46,7 +46,7 @@ function setupReceiver(connection) {
     if (data.type === 'request') {
       console.log('Received request from %s for', connection.peer, data.request);
       var request = Object.keys(data.request)[0];
-      handlers[request](data.request, sendResponse.bind(null, data.id, connection));
+      handlers[request](data.request[request], sendResponse.bind(null, data.id, connection));
     } else if (data.type === 'response') {
       console.log('Recieved response from %s', connection.peer, data.response);
       callbacks[data.id](data.response.errors, data.response);

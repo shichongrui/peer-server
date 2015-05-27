@@ -5,7 +5,7 @@ It builds on top of PeerJS to make it easy for you to send and handle requests f
 
 ###How to use peer-server###
 
-    import PeerServer from 'peer-server'
+    import * as PeerServer from 'peer-server'
 
     PeerServer.startServer(optionalPeerJSKey).then((peerId) => {
       console.log(peerId) // your peerId

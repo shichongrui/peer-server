@@ -1,6 +1,6 @@
 {
   "name": "peer-server",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A request response library using PeerJS to make it easier to write p2p applications",
   "main": "index.js",
   "keywords": [

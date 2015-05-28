@@ -3,6 +3,9 @@
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 exports.startServer = startServer;
 exports.connectToPeer = connectToPeer;
 exports.sendRequest = sendRequest;
@@ -69,17 +72,17 @@ var peerId;
 
 exports.peerId = peerId;
 
-function startServer(key) {
-  peer = new _peerjs2['default']({
-    key: key || null,
+function startServer() {
+  var peerId = typeof arguments[0] === 'string' ? arguments[0] : null;
+  var options = typeof arguments[0] === 'object' ? arguments[0] : arguments[1];
+
+  options = _extends({
+    key: null,
     host: 'localhost',
-    port: '9000',
-    config: {
-      'iceServers': [{
-        url: 'stun:stun.l.google.com:19302'
-      }]
-    }
-  });
+    port: '9000'
+  }, options);
+
+  peer = new _peerjs2['default'](peerId, options);
 
   peer.on('connection', function (connection) {
     setUpListeners(connection);
@@ -88,7 +91,7 @@ function startServer(key) {
   return new Promise(function (resolve, reject) {
     peer.on('open', function (id) {
       console.log('peer js setup with peerId %s', id);
-      exports.peerId = peerId = id;
+      peerId = id;
       resolve(id);
     });
   });

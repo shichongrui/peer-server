@@ -50,19 +50,17 @@ function sendResponse(id, connection, data) {
 
 export var peerId
 
-export function startServer(key) {
-  peer = new Peer({
-    key: key || null,
+export function startServer() {
+  let peerId = typeof arguments[0] === 'string' ? arguments[0] : null
+  let options = typeof arguments[0] === 'object' ? arguments[0] : arguments[1]
+
+  options = Object.assign({
+    key: null,
     host: 'localhost',
-    port: '9000',
-    config: {
-      'iceServers': [
-        {
-          url: 'stun:stun.l.google.com:19302'
-        }
-      ]
-    }
-  })
+    port: '9000'
+  }, options)
+
+  peer = new Peer(peerId, options)
 
   peer.on('connection', (connection) => {
     setUpListeners(connection)

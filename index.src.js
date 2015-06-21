@@ -55,7 +55,6 @@ export function startServer() {
   let options = typeof arguments[0] === 'object' ? arguments[0] : arguments[1]
 
   options = Object.assign({
-    key: null,
     host: 'localhost',
     port: '9000'
   }, options)
